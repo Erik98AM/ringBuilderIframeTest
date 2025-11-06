@@ -1,12 +1,12 @@
 const RingBuilderFrame = () => {
 	return (
-		<div style={{ width: '100%', height: '100vh', border: 'none' }}>
+		<div style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}>
 			<iframe
 				id='ring-builder-iframe'
-				src='https://rbiframe.netlify.app/?locationId=uphmh4FJXquVB7TZBme8'
+				src='http://rbiframe.netlify.app/?locationId=uphmh4FJXquVB7TZBme8'
 				title='Ring Builder'
 				allowFullScreen
-				style={{ width: '100%', height: '100%', border: 'none' }}
+				style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
 			/>
 		</div>
 	);
