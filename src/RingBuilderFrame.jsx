@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
-
+const severName = 'https://rbiframe.netlify.app';
+// const severName = 'http://localhost:5173';
 const RingBuilderFrame = () => {
 	useEffect(() => {
 		// Слушать запросы от iframe
 		const handleMessage = event => {
 			// Проверить что сообщение от вашего iframe
-			if (event.origin !== 'https://rbiframe.netlify.app') return;
+			if (event.origin !== `${severName}`) return;
 
 			if (event.data.type === 'REQUEST_QUERY_PARAMS') {
 				const iframe = document.getElementById('ring-builder-iframe');
@@ -14,7 +15,7 @@ const RingBuilderFrame = () => {
 					const queryParams = window.location.search;
 					iframe.contentWindow.postMessage(
 						{ type: 'PARENT_QUERY_PARAMS', queryParams },
-						'https://rbiframe.netlify.app'
+						`${severName}`
 					);
 				}
 			}
@@ -30,7 +31,7 @@ const RingBuilderFrame = () => {
 		<div style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}>
 			<iframe
 				id='ring-builder-iframe'
-				src='https://rbiframe.netlify.app/?locationId=uphmh4FJXquVB7TZBme8'
+				src={`${severName}/?locationId=uphmh4FJXquVB7TZBme8`}
 				title='Ring Builder'
 				allowFullScreen
 				style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
