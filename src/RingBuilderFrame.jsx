@@ -32,11 +32,11 @@ const RingBuilderFrame = () => {
 			}
 
 			// Handle dynamic iframe height
-			if (event.data.type === 'resize' && event.data.height) {
-				if (iframe) {
-					iframe.style.height = event.data.height + 'px';
-				}
-			}
+			// if (event.data.type === 'resize' && event.data.height) {
+			// 	if (iframe) {
+			// 		iframe.style.height = event.data.height + 'px';
+			// 	}
+			// }
 		};
 
 		window.addEventListener('message', handleMessage);
@@ -57,7 +57,6 @@ const RingBuilderFrame = () => {
 			iframe.addEventListener('load', handleLoad);
 		}
 
-		// Fallback: Send parent URL periodically for the first few seconds
 		let attempts = 0;
 		const maxAttempts = 5;
 		const interval = setInterval(() => {
